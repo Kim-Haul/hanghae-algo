@@ -10,5 +10,7 @@ const find_alphabet_occurrence_array = (input) => {
   return String.fromCharCode(list.indexOf(Math.max(...list)) + 97);
 };
 
-result = find_alphabet_occurrence_array("hello my name is sparta");
+result = find_alphabet_occurrence_array(
+  "hello my name is sparta nice to meet you"
+);
 console.log(result);

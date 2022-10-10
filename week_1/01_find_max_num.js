@@ -14,8 +14,8 @@ input = [3, 5, 6, 1, 2, 4];
 
 const find_max_num = (arr) => {
   let max = arr[0];
-  for (i = 1; i < arr.length; i++) {
-    arr[i] >= max ? (max = arr[i]) : null;
+  for (j = 1; j < arr.length; j++) {
+    arr[j] >= max ? (max = arr[j]) : null;
   }
   return max;
 };
