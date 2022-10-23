@@ -1,6 +1,3 @@
-// Array : 특정 원소 조회빠름, 중간 삽입 삭제 느림 :: 데이터 조회가 빈번하다면 Array 사용
-// LinkedList : 특정 원소 조회 느림, 중간 삽입 삭제 빠름 :: 삽입과 삭제가 빈번하다면 LinkedList 사용
-
 class Node {
   constructor(data, next) {
     this.data = data;
@@ -28,11 +25,22 @@ class LinkedList {
       cur = cur.next;
     }
   }
+
+  get_node(index) {
+    let idx = 0;
+    let cur = this.head;
+    while (idx != index) {
+      cur = cur.next;
+      idx++;
+    }
+    console.log(cur.data);
+  }
 }
 
-let linked_list = new LinkedList(3);
-linked_list.append(4);
-linked_list.append(5);
-linked_list.append(6);
+let linked_list = new LinkedList(5);
+linked_list.append(12);
 linked_list.append(7);
-linked_list.console_all();
+linked_list.append(4);
+linked_list.append(6);
+linked_list.append(9);
+linked_list.get_node(5);
