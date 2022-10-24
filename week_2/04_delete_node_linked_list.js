@@ -59,9 +59,17 @@ class LinkedList {
     new_node.next = next_node;
   }
 
-  delete_node(index) {}
+  delete_node(index) {
+    let cur_node = this.get_node(index);
+    let next_node = cur_node.next;
+    cur_node.data = next_node.data;
+    cur_node.next = next_node.next;
+  }
 }
 
-let linked_list = new LinkedList();
+let linked_list = new LinkedList(5);
 linked_list.append(12);
+linked_list.add_node(0, 3);
+linked_list.console_all();
+linked_list.delete_node(0);
 linked_list.console_all();
