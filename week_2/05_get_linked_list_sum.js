@@ -32,7 +32,37 @@ class LinkedList {
   }
 }
 
-const get_linked_list_sum = (linked_list_1, linked_list_2) => {};
+const _get_linked_list_sum = (linked_list) => {
+  let sum = 0;
+  let head = linked_list.head;
+  while (head != undefined) {
+    sum = sum * 10 + head.data;
+    head = head.next;
+  }
+
+  return sum;
+};
+
+const get_linked_list_sum = (linked_list_1, linked_list_2) => {
+  // let sum_1 = 0;
+  // let head_1 = linked_list_1.head;
+  // while (head_1 != undefined) {
+  //   sum_1 = sum_1 * 10 + head_1.data;
+  //   head_1 = head_1.next;
+  // }
+
+  // let sum_2 = 0;
+  // let head_2 = linked_list_2.head;
+  // while (head_2 != undefined) {
+  //   sum_2 = sum_2 * 10 + head_2.data;
+  //   head_2 = head_2.next;
+  // }
+
+  let sum_1 = _get_linked_list_sum(linked_list_1);
+  let sum_2 = _get_linked_list_sum(linked_list_2);
+
+  return sum_1 + sum_2;
+};
 
 linked_list_1 = new LinkedList(6);
 linked_list_1.append(7);
