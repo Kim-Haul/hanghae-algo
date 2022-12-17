@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class Stack {
+class Queue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -18,19 +18,34 @@ class Stack {
       this.tail = new_node;
       return;
     }
-    new_node.next = this.tail;
+    this.tail.next = new_node;
     this.tail = new_node;
   }
 
-  dequeue(data) {}
+  dequeue() {
+    if (this.is_empty()) {
+      return "Queue is Empty";
+    }
+    let delete_head = this.head;
+    this.head = this.head.next;
+    return delete_head.data;
+  }
+
+  peek() {
+    if (this.is_empty()) {
+      return "Queue is Empty";
+    }
+    return this.head.data;
+  }
 
   is_empty() {
     return this.head == null;
   }
 }
 
-let stack = new Stack();
-stack.enqueue(4);
-stack.enqueue(5);
-stack.enqueue(6);
-console.log(stack);
+let queue = new Queue();
+queue.enqueue(3);
+queue.enqueue(4);
+queue.enqueue(5);
+queue.dequeue();
+console.log(queue.peek());
