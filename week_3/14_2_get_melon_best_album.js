@@ -1,4 +1,6 @@
-genres = ["classic", "pop", "classic", "classic", "pop"];
+// console 찍어보면서 풀기위한 복사본
+
+genres = ['classic', 'pop', 'classic', 'classic', 'pop'];
 plays = [500, 600, 150, 800, 2500];
 
 const get_melon_best_album = (genre_array, play_array) => {
@@ -17,7 +19,20 @@ const get_melon_best_album = (genre_array, play_array) => {
       genre_index_paly_array_dict[genre_array[i]].push([i, play_array[i]]);
     }
   }
-  return genre_total_paly_dict;
+
+  // 객체 value 값으로 정렬
+  const sort_genre_total_paly_dict = Object.entries(genre_total_paly_dict)
+    .sort(([, a], [, b]) => b - a) // 내림차순 정렬
+    .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+
+  // 객체 key값 배열로 꺼내기
+  // console.log(Object.keys(sort_genre_total_paly_dict));
+  for (i = 0; i < Object.keys(sort_genre_total_paly_dict).length; i++) {
+    genre_index_paly_array_dict[Object.keys(sort_genre_total_paly_dict)[i]];
+  }
+
+  console.log(sort_genre_total_paly_dict);
+  console.log(genre_index_paly_array_dict);
 };
 
 console.log(get_melon_best_album(genres, plays));
